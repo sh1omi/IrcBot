@@ -1,0 +1,19 @@
+{
+  "name": "ircbot",
+  "version": "1.0.0",
+  "description": "Simple irc bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "sh1omi",
+  "license": "MIT",
+  "keywords": [
+    "irc",
+    "bot",
+    "sh1omi"
+  ],
+  "dependencies": {
+    "dateformat":"*"
+  }
+}
