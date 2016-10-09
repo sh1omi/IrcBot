@@ -43,7 +43,7 @@ client.on('data', (chunk) => {
                     if(message.args[1]=="ACK" && message.args[2]=="sasl ") client.write("AUTHENTICATE PLAIN\n");
                     break;
                 case 'AUTHENTICATE':
-                    if(message.args[0]=="+") client.write("AUTHENTICATE "+new Buffer('sh1bot' + '\0' +config.username + '\0' +config.sasl).toString('base64')+"\n");
+                    if(message.args[0]=="+") client.write("AUTHENTICATE "+new Buffer(config.nick + '\0' +config.username + '\0' +config.sasl).toString('base64')+"\n");
                     break;
                 case '903':
                     client.write("CAP END\n");
