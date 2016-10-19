@@ -8,7 +8,7 @@ const codes = require('./codes');
 let config = require('./config.js');
 config.messageSplit = 512;
 
-let cmd = {},permissions = {},lineDelimiter = new RegExp('\r\n|\r|\n');
+let cmd = {},permissions = {};
 
 let client;
 if(config.secure) {
@@ -27,7 +27,7 @@ let buffer = new Buffer('');
 client.on('data', (chunk) => {
     if (typeof (chunk) === 'string') buffer += chunk;
     else buffer = Buffer.concat([buffer, chunk]);
-    let lines = buffer.split(lineDelimiter);
+    let lines = buffer.split(new RegExp('\r\n|\r|\n'));
     if (lines.pop()) return;
     else buffer = new Buffer('');
     lines.forEach(function iterator(line) {
